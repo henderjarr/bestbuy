@@ -15,35 +15,37 @@ class Product:
         self.active = active
 
     def get_quantity(self):
+        """returns the quantity of the product"""
         return self.quantity
 
     def set_quantity(self, quantity):
+        """sets the quantity of the product, if the quantity is less than or equal to 0, the product is deactivated"""
         self.quantity = quantity
         if quantity <= 0:
             self.deactivate()
 
     def is_active(self):
+        """returns whether the product is active or not"""
         return self.active
 
     def activate(self):
+        """activates the product"""
         self.active = True
 
     def deactivate(self):
+        """deactivates the product"""
         self.active = False
 
     def show(self):
+        """prints the product's name, price, and quantity"""
         print(
             f"Product: {self.name}, Price: {self.price}, Quantity: {self.quantity}")
 
     def buy(self, quantity):
-        # buys a quantity:
-        self.quantity = self.get_quantity() - quantity
-        # returns the total price of the purchase
+        """buys a quantity and sets the new quantity of the product, checks to make sure there is enough quantity available, returns the total price of the purchase"""
+        if quantity > self.quantity:
+            raise ValueError("not enough quantity available")
+        self.set_quantity(self.quantity - quantity)
+
         total_price = self.price * quantity
-        # updates the quantity of the product
-        self.quantity -= quantity
-
-        # should return the total price of the purchase
         return total_price
-
-        # should think of poossible errors that could occur
