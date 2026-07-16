@@ -14,13 +14,38 @@ from store import Store
 # bose.set_quantity(1000)
 # bose.show()
 
-product_list = [Product("MacBook Air M2", price=1450, quantity=100),
-                Product("Bose QuietComfort Earbuds",
-                        price=250, quantity=500),
-                Product("Google Pixel 7", price=500, quantity=250),
-                ]
+# product_list = [Product("MacBook Air M2", price=1450, quantity=100),
+#                 Product("Bose QuietComfort Earbuds",
+#                         price=250, quantity=500),
+#                 Product("Google Pixel 7", price=500, quantity=250),
+#                 ]
 
+# best_buy = Store(product_list)
+# products = best_buy.get_all_products()
+# print(f" quantity: {best_buy.get_total_quantity()}")
+# print(f"total price: {best_buy.order([(products[0], 1), (products[1], 2)])}")
+
+
+# setup initial stock of inventory
+product_list = [Product("MacBook Air M2", price=1450, quantity=100),
+                Product("Bose QuietComfort Earbuds", price=250, quantity=500),
+                Product("Google Pixel 7", price=500, quantity=250)
+                ]
 best_buy = Store(product_list)
-products = best_buy.get_all_products()
-print(f" quantity: {best_buy.get_total_quantity()}")
-print(f"total price: {best_buy.order([(products[0], 1), (products[1], 2)])}")
+
+
+def start(store):
+
+    while True:
+        print("""
+              1. List all products in store
+              2. Show total amount in store
+              3. Make an order
+              4. Exit
+              """)
+
+        choice = input("Please choose a number: ")
+        break
+
+
+start(best_buy)
