@@ -38,8 +38,7 @@ class Product:
 
     def show(self):
         """prints the product's name, price, and quantity"""
-        print(
-            f"Product: {self.name}, Price: {self.price}, Quantity: {self.quantity}")
+        print(f"{self.name}, Price: {self.price}, Quantity: {self.quantity}")
 
     def buy(self, quantity):
         """buys a quantity and sets the new quantity of the product, checks to make sure there is enough quantity available, returns the total price of the purchase"""
